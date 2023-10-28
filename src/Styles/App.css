@@ -1,0 +1,46 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.App {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: space-between;
+	padding: 2em;
+}
+.btnOpenModal {
+	width: 20vw;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+img {
+	width: 70px;
+	height: 70px;
+}
+
+.modal {
+	width: 70vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+label {
+	font-size: 1.2em;
+	padding-bottom: 0.4em;
+}
+
+textarea {
+	padding: 1em;
+	max-width: 500px;
+	min-width: 500px;
+	max-height: 200px;
+	min-height: 200px;
+}

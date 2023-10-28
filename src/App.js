@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import './Styles/App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Modal from './components/Modal'
+import NoteList from './components/NoteList'
+import SiteBar from './components/SiteBar'
+
+const App = () => {
+	const [isModal, setIsModal] = useState(false)
+	const [notes, setNotes] = useState([])
+
+	const handleCheckModal = () => {
+		setIsModal(true)
+	}
+
+	const handleChange = note => {
+		setNotes([...notes, note])
+		console.log(notes)
+	}
+
+	return (
+		<div className='App'>
+			<SiteBar click={handleCheckModal} />
+			<NoteList listNote={notes} />
+			{isModal ? <Modal change={handleChange} /> : null}
+		</div>
+	)
 }
 
-export default App;
+export default App
