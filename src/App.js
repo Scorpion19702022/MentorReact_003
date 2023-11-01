@@ -21,8 +21,10 @@ const App = () => {
 	return (
 		<div className='App'>
 			<SiteBar click={handleCheckModal} />
-			<NoteList listNote={notes} />
-			{isModal ? <Modal change={handleChange} /> : null}
+			<div className='boxcontent'>
+				{isModal ? <Modal change={handleChange} /> : null}
+				<NoteList listNote={notes} />
+			</div>
 		</div>
 	)
 }

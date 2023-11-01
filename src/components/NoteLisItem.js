@@ -2,8 +2,8 @@ import React from 'react'
 
 const NoteListItem = props => {
 	return (
-		<div>
-			<p>{props.note.value}</p>
+		<div className='notelist'>
+			<p className='notelistview'>{props.note.value}</p>
 		</div>
 	)
 }

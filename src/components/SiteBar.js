@@ -3,7 +3,7 @@ import PlusLogo from '../assets/plus.png'
 
 const SiteBar = props => {
 	return (
-		<div>
+		<div className='sitebar'>
 			<button className='btnOpenModal' onClick={props.click}>
 				<img src={PlusLogo} alt='logo' />
 			</button>

@@ -45,9 +45,13 @@ const Modal = props => {
 
 	return (
 		<div className='modal'>
-			<label>Dodaj notatkę</label>
-			<textarea placeholder='wpisz notatkę' value={termNote} onChange={e => setTermNote(e.target.value)}></textarea>
-			<button onClick={addNotes}>Dodaj notatkę</button>
+			<div className='modaltext'>
+				<label>Dodaj notatkę</label>
+				<textarea placeholder='wpisz notatkę' value={termNote} onChange={e => setTermNote(e.target.value)}></textarea>
+			</div>
+			<button className='modalbtn' onClick={addNotes}>
+				Dodaj notatkę
+			</button>
 		</div>
 	)
 }

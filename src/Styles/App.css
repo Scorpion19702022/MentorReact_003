@@ -6,13 +6,38 @@
 	padding: 0;
 }
 
+:root {
+	--color-white: #ffffff;
+	--color-lightone: #ccdaf1;
+	--color-lighttwo: #99b5e3;
+	--color-lightthree: #6691d5;
+	--color-mediumone: #326cc7;
+	--color-mediumtwo: #0048ba;
+	--color-mediumthree: #003994;
+	--color-darkone: #00245d;
+	--color-darktwo: #001537;
+	--color-black: #000000;
+}
+
 .App {
 	width: 100vw;
 	height: 100vh;
 	display: flex;
-	justify-content: space-between;
 	padding: 2em;
+	background-color: var(--color-lightone);
 }
+
+.boxcontent {
+	width: 70%;
+	display: flex;
+	flex-direction: column;
+}
+
+.sitebar {
+	border-right: 0.04em solid var(--color-darktwo);
+	margin-right: 1em;
+}
+
 .btnOpenModal {
 	width: 20vw;
 	background: transparent;
@@ -26,10 +51,21 @@ img {
 }
 
 .modal {
-	width: 70vw;
+	width: 100%;
+	height: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 2em auto;
+	padding-bottom: 1em;
+	border-bottom: 0.04em solid var(--color-darktwo);
+}
+
+.modaltext {
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	align-self: flex-end;
+	margin-right: 1em;
 }
 
 label {
@@ -43,4 +79,34 @@ textarea {
 	min-width: 500px;
 	max-height: 200px;
 	min-height: 200px;
+	border: 0.04em solid var(--color-darkone);
 }
+
+textarea:focus {
+	outline: none;
+}
+
+.modalbtn {
+	align-self: flex-end;
+	padding: 0.4em 2em;
+	border: 0.04em solid var(--color-darkone);
+	background-color: var(--color-lightone);
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+
+.modalbtn:hover {
+	background-color: var(--color-mediumthree);
+	color: var(--color-lightone);
+}
+
+/* .notelist {
+	width: 100%;
+	display: flex;
+}
+
+.notelistview {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+} */
