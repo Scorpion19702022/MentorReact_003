@@ -9,8 +9,12 @@ const App = () => {
 	const [isModal, setIsModal] = useState(false)
 	const [notes, setNotes] = useState([])
 
-	const handleCheckModal = () => {
-		setIsModal(true)
+	const handleCheckModal = type => {
+		if (type === 'open') {
+			setIsModal(true)
+		} else {
+			setIsModal(false)
+		}
 	}
 
 	const handleChange = note => {
@@ -18,12 +22,17 @@ const App = () => {
 		console.log(notes)
 	}
 
+	const deleteNote = id => {
+		const deleteNote = notes.filter(note => note.id !== id)
+		setNotes(deleteNote)
+	}
+
 	return (
 		<div className='App'>
 			<SiteBar click={handleCheckModal} />
 			<div className='boxcontent'>
-				{isModal ? <Modal change={handleChange} /> : null}
-				<NoteList listNote={notes} />
+				{isModal ? <Modal change={handleChange} click={handleCheckModal} /> : null}
+				<NoteList listNote={notes} deleteNote={deleteNote} />
 			</div>
 		</div>
 	)

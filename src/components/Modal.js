@@ -37,6 +37,7 @@ const Modal = props => {
 		}
 		props.change(note)
 		resetNote()
+		props.click('close')
 	}
 
 	const resetNote = () => {
@@ -44,14 +45,29 @@ const Modal = props => {
 	}
 
 	return (
-		<div className='modal'>
-			<div className='modaltext'>
-				<label>Dodaj notatkę</label>
-				<textarea placeholder='wpisz notatkę' value={termNote} onChange={e => setTermNote(e.target.value)}></textarea>
+		<div className='boxmodal'>
+			<div className='modal'>
+				<span className='modalcross' onClick={() => props.click('close')}>
+					X
+				</span>
+				<div className='modaltext'>
+					<label>Dodaj notatkę</label>
+					<textarea placeholder='wpisz notatkę' value={termNote} onChange={e => setTermNote(e.target.value)}></textarea>
+				</div>
+				<div className='boxselect'>
+					<label>
+						<select name='kategoria'>
+							<option value=''>wybierz</option>
+							<option value=''>dom</option>
+							<option value=''>praca</option>
+							<option value=''>rozrywka</option>
+						</select>
+					</label>
+					<button className='modalbtn' onClick={addNotes}>
+						Dodaj notatkę
+					</button>
+				</div>
 			</div>
-			<button className='modalbtn' onClick={addNotes}>
-				Dodaj notatkę
-			</button>
 		</div>
 	)
 }
