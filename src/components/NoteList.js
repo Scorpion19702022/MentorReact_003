@@ -10,7 +10,7 @@ const NoteList = props => {
 		)
 	})
 
-	return <div>{noteListItem}</div>
+	return <div className='notelist'>{noteListItem}</div>
 }
 
 export default NoteList

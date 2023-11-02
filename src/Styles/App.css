@@ -100,13 +100,17 @@ textarea:focus {
 	color: var(--color-lightone);
 }
 
-/* .notelist {
-	width: 100%;
+.notelistview {
+	padding: 1rem;
 	display: flex;
+	justify-content: space-between;
+	background-color: var(--color-lightthree);
+	height: 250px;
+	width: 250px;
 }
 
-.notelistview {
+.notelist {
 	display: grid;
-	grid-gap: 10px;
-	grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-} */
+	grid-gap: 1rem;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+}
