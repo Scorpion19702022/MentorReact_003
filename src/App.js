@@ -19,7 +19,7 @@ const App = () => {
 
 	const handleChange = note => {
 		setNotes([...notes, note])
-		console.log(notes)
+		// console.log(notes)
 	}
 
 	const deleteNote = id => {
