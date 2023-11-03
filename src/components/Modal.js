@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 
 const Modal = props => {
 	const [termNote, setTermNote] = useState('')
-	const [select, setSelect] = useState('')
 
 	const addNotes = () => {
 		console.log(termNote)
@@ -54,8 +53,6 @@ const Modal = props => {
 		setTermNote('')
 	}
 
-	console.log(select)
-
 	return (
 		<div className='boxmodal'>
 			<div className='modal'>
@@ -69,10 +66,10 @@ const Modal = props => {
 				<div className='boxselect'>
 					<label>
 						<select name='kategoria'>
-							<option value={select}>wybierz</option>
-							<option value={select}>dom</option>
-							<option value={select}>praca</option>
-							<option value={select}>rozrywka</option>
+							<option value='change'>wybierz</option>
+							<option value='home'>dom</option>
+							<option value='job'>praca</option>
+							<option value='entertaiment'>rozrywka</option>
 						</select>
 					</label>
 					<button className='modalbtn' onClick={correctAdd}>
