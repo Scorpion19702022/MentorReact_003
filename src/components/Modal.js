@@ -37,7 +37,6 @@ const Modal = props => {
 		const note = {
 			id: Math.floor(Math.random() * 10000),
 			value: termNote,
-			category: selectCategory,
 			date: `${day} ${month} ${year} ${hour}:${rightMinute}:${rightSecond}`,
 		}
 		props.change(note)
