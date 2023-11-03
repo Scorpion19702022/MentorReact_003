@@ -28,12 +28,15 @@ const Modal = props => {
 		const minute = date.getMinutes()
 		const second = date.getSeconds()
 
-		console.log(day, month, year, hour, minute, second)
+		const rightMinute = minute > 9 ? `${minute}` : `0${minute}`
+		const rightSecond = second > 9 ? `${second}` : `0${second}`
+
+		// console.log(day, month, year, hour, minute, second)
 
 		const note = {
 			id: Math.floor(Math.random() * 10000),
 			value: termNote,
-			date: `${day} ${month} ${year} ${hour}:${minute}:${second}`,
+			date: `${day} ${month} ${year} ${hour}:${rightMinute}:${rightSecond}`,
 		}
 		props.change(note)
 		resetNote()
