@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 
 const Modal = props => {
 	const [termNote, setTermNote] = useState('')
+	const [selectCategory, setSelectCategory] = useState('change')
 
-	const addNotes = () => {
+	const addNotes = selectCategory => {
 		console.log(termNote)
 		const date = new Date()
 
@@ -36,6 +37,7 @@ const Modal = props => {
 		const note = {
 			id: Math.floor(Math.random() * 10000),
 			value: termNote,
+			category: selectCategory,
 			date: `${day} ${month} ${year} ${hour}:${rightMinute}:${rightSecond}`,
 		}
 		props.change(note)
@@ -43,9 +45,9 @@ const Modal = props => {
 		props.click('close')
 	}
 
-	const correctAdd = e => {
-		if (termNote.length > 0) {
-			addNotes()
+	const correctAdd = () => {
+		if (termNote.length > 0 && selectCategory !== 'change') {
+			addNotes(selectCategory)
 		}
 	}
 
@@ -65,7 +67,7 @@ const Modal = props => {
 				</div>
 				<div className='boxselect'>
 					<label>
-						<select name='kategoria'>
+						<select name='kategoria' value={selectCategory} onChange={e => setSelectCategory(e.target.value)}>
 							<option value='change'>wybierz</option>
 							<option value='home'>dom</option>
 							<option value='job'>praca</option>
