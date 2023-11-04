@@ -5,7 +5,7 @@ const NoteList = props => {
 	const noteListItem = props.listNote.map(note => {
 		return (
 			<div key={note.id}>
-				<NoteListItem note={note} deleteNote={props.deleteNote} />
+				<NoteListItem note={note} deleteNote={props.deleteNote} bgcstyle={props.styleAll} />
 			</div>
 		)
 	})

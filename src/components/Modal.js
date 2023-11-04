@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const Modal = props => {
 	const [termNote, setTermNote] = useState('')
-	const [selectCategory, setSelectCategory] = useState('change')
+	// const [selectCategory, setSelectCategory] = useState('change')
 
 	const addNotes = () => {
 		console.log(termNote)
@@ -45,7 +45,7 @@ const Modal = props => {
 	}
 
 	const correctAdd = () => {
-		if (termNote.length > 0 && selectCategory !== 'change') {
+		if (termNote.length > 0 && props.select !== 'change') {
 			addNotes()
 		}
 	}
@@ -66,7 +66,8 @@ const Modal = props => {
 				</div>
 				<div className='boxselect'>
 					<label>
-						<select name='kategoria' value={selectCategory} onChange={e => setSelectCategory(e.target.value)}>
+						{/* <select name='kategoria' value={props.select} onChange={e => setSelectCategory(e.target.value)}> */}
+						<select name='kategoria' value={props.select} onChange={e => props.newSelect(e.target.value)}>
 							<option value='change'>wybierz</option>
 							<option value='home'>dom</option>
 							<option value='job'>praca</option>

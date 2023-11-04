@@ -5,9 +5,11 @@ import Modal from './components/Modal'
 import NoteList from './components/NoteList'
 import SiteBar from './components/SiteBar'
 
-const App = props => {
+const App = () => {
 	const [isModal, setIsModal] = useState(false)
 	const [notes, setNotes] = useState([])
+
+	const [selectCategory, setSelectCategory] = useState('change')
 
 	const handleCheckModal = type => {
 		if (type === 'open') {
@@ -27,12 +29,20 @@ const App = props => {
 		setNotes(deleteNote)
 	}
 
+	let addNewStyles
+
+	if (selectCategory === 'job') {
+		addNewStyles = 'notelistview1'
+	}
+
 	return (
 		<div className='App'>
 			<SiteBar click={handleCheckModal} />
 			<div className='boxcontent'>
-				{isModal ? <Modal change={handleChange} click={handleCheckModal} /> : null}
-				<NoteList listNote={notes} deleteNote={deleteNote} />
+				{isModal ? (
+					<Modal change={handleChange} click={handleCheckModal} select={selectCategory} newSelect={setSelectCategory} />
+				) : null}
+				<NoteList listNote={notes} deleteNote={deleteNote} styleAll={addNewStyles} />
 			</div>
 		</div>
 	)

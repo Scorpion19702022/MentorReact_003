@@ -133,12 +133,30 @@ textarea:focus {
 	color: var(--color-lightone);
 }
 
-.notelistview {
+.notelistview1 {
 	padding: 1rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	background-color: var(--color-lightthree);
+	background-color: yellow;
+	height: 250px;
+	width: 250px;
+}
+.notelistview2 {
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: red;
+	height: 250px;
+	width: 250px;
+}
+.notelistview3 {
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: green;
 	height: 250px;
 	width: 250px;
 }
