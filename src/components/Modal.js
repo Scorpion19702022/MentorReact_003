@@ -4,7 +4,7 @@ const Modal = props => {
 	const [termNote, setTermNote] = useState('')
 	const [selectCategory, setSelectCategory] = useState('change')
 
-	const addNotes = selectCategory => {
+	const addNotes = () => {
 		console.log(termNote)
 		const date = new Date()
 
@@ -46,7 +46,7 @@ const Modal = props => {
 
 	const correctAdd = () => {
 		if (termNote.length > 0 && selectCategory !== 'change') {
-			addNotes(selectCategory)
+			addNotes()
 		}
 	}
 

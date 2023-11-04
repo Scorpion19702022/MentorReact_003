@@ -3,7 +3,7 @@ import DeleteIcon from '../assets/352303_delete_icon.png'
 
 const NoteListItem = props => {
 	return (
-		<div className='notelistview'>
+		<div className={props.bgcstyle}>
 			<p>{props.note.value}</p>
 			<div className='notebox'>
 				<small>{props.note.date}</small>
