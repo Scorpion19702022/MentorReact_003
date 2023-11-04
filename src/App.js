@@ -5,7 +5,7 @@ import Modal from './components/Modal'
 import NoteList from './components/NoteList'
 import SiteBar from './components/SiteBar'
 
-const App = () => {
+const App = props => {
 	const [isModal, setIsModal] = useState(false)
 	const [notes, setNotes] = useState([])
 
