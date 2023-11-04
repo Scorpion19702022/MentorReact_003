@@ -35,9 +35,11 @@ const App = () => {
 		addNewStyles = 'notelistview1'
 	} else if (selectCategory === 'job') {
 		addNewStyles = 'notelistview2'
-	} else {
+	} else if (selectCategory === 'entertainment') {
 		addNewStyles = 'notelistview3'
 	}
+
+	console.log(addNewStyles)
 
 	return (
 		<div className='App'>

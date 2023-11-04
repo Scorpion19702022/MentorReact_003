@@ -71,7 +71,7 @@ const Modal = props => {
 							<option value='change'>wybierz</option>
 							<option value='home'>dom</option>
 							<option value='job'>praca</option>
-							<option value='entertaiment'>rozrywka</option>
+							<option value='entertainment'>rozrywka</option>
 						</select>
 					</label>
 					<button className='modalbtn' onClick={correctAdd}>
