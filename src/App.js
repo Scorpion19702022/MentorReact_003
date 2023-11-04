@@ -31,8 +31,12 @@ const App = () => {
 
 	let addNewStyles
 
-	if (selectCategory === 'job') {
+	if (selectCategory === 'home') {
 		addNewStyles = 'notelistview1'
+	} else if (selectCategory === 'job') {
+		addNewStyles = 'notelistview2'
+	} else {
+		addNewStyles = 'notelistview3'
 	}
 
 	return (
