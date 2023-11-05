@@ -12,6 +12,8 @@ const App = () => {
 	const [selectCategory, setSelectCategory] = useState('change')
 	const [styleAll, setStyleAll] = useState('')
 
+	// let addNewStyles
+
 	const handleCheckModal = type => {
 		if (type === 'open') {
 			setIsModal(true)
@@ -33,14 +35,19 @@ const App = () => {
 	useEffect(() => {
 		if (selectCategory === 'home') {
 			setStyleAll('notelistview1')
+			console.log('żółty')
 		} else if (selectCategory === 'job') {
 			setStyleAll('notelistview2')
+			console.log('czerwony')
 		} else if (selectCategory === 'entertainment') {
 			setStyleAll('notelistview3')
-		} else {
-			alert('wypełnij poprawnie modal')
+			console.log('zielony')
 		}
 	}, [selectCategory])
+
+	// console.log(styleAll)
+
+	// let addNewStyles
 
 	// if (selectCategory === 'home') {
 	// 	addNewStyles = 'notelistview1'
