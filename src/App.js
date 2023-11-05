@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Styles/App.css'
 
 import Modal from './components/Modal'
@@ -10,6 +10,7 @@ const App = () => {
 	const [notes, setNotes] = useState([])
 
 	const [selectCategory, setSelectCategory] = useState('change')
+	const [styleAll, setStyleAll] = useState('')
 
 	const handleCheckModal = type => {
 		if (type === 'open') {
@@ -29,17 +30,25 @@ const App = () => {
 		setNotes(deleteNote)
 	}
 
-	let addNewStyles
+	useEffect(() => {
+		if (selectCategory === 'home') {
+			setStyleAll('notelistview1')
+		} else if (selectCategory === 'job') {
+			setStyleAll('notelistview2')
+		} else if (selectCategory === 'entertainment') {
+			setStyleAll('notelistview3')
+		} else {
+			alert('wypełnij poprawnie modal')
+		}
+	}, [selectCategory])
 
-	if (selectCategory === 'home') {
-		addNewStyles = 'notelistview1'
-	} else if (selectCategory === 'job') {
-		addNewStyles = 'notelistview2'
-	} else if (selectCategory === 'entertainment') {
-		addNewStyles = 'notelistview3'
-	}
-
-	console.log(addNewStyles)
+	// if (selectCategory === 'home') {
+	// 	addNewStyles = 'notelistview1'
+	// } else if (selectCategory === 'job') {
+	// 	addNewStyles = 'notelistview2'
+	// } else if (selectCategory === 'entertainment') {
+	// 	addNewStyles = 'notelistview3'
+	// }
 
 	return (
 		<div className='App'>
@@ -48,7 +57,7 @@ const App = () => {
 				{isModal ? (
 					<Modal change={handleChange} click={handleCheckModal} select={selectCategory} newSelect={setSelectCategory} />
 				) : null}
-				<NoteList listNote={notes} deleteNote={deleteNote} styleAll={addNewStyles} />
+				<NoteList listNote={notes} deleteNote={deleteNote} styleAll={styleAll} />
 			</div>
 		</div>
 	)
