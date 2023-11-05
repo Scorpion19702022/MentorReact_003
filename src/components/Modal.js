@@ -2,6 +2,13 @@ import React, { useState } from 'react'
 
 const Modal = props => {
 	const [termNote, setTermNote] = useState('')
+	const [category, setCategory] = useState({
+		id: 'id',
+		change: 'change',
+		home: 'home',
+		job: 'job',
+		entertainment: 'entertainment',
+	})
 	// const [selectCategory, setSelectCategory] = useState('change')
 
 	const addNotes = () => {
@@ -32,8 +39,6 @@ const Modal = props => {
 		const rightMinute = minute > 9 ? `${minute}` : `0${minute}`
 		const rightSecond = second > 9 ? `${second}` : `0${second}`
 
-		// console.log(day, month, year, hour, minute, second)
-
 		const note = {
 			id: Math.floor(Math.random() * 10000),
 			value: termNote,
@@ -45,7 +50,7 @@ const Modal = props => {
 	}
 
 	const correctAdd = () => {
-		if (termNote.length > 0 && props.select !== 'change') {
+		if (termNote.length > 0 && props.select !== category.change) {
 			addNotes()
 		}
 	}
@@ -68,10 +73,10 @@ const Modal = props => {
 					<label>
 						{/* <select name='kategoria' value={props.select} onChange={e => setSelectCategory(e.target.value)}> */}
 						<select name='kategoria' value={props.select} onChange={e => props.newSelect(e.target.value)}>
-							<option value='change'>wybierz</option>
-							<option value='home'>dom</option>
-							<option value='job'>praca</option>
-							<option value='entertainment'>rozrywka</option>
+							<option value={category.change}>wybierz</option>
+							<option value={category.home}>dom</option>
+							<option value={category.job}>praca</option>
+							<option value={category.entertainment}>rozrywka</option>
 						</select>
 					</label>
 					<button className='modalbtn' onClick={correctAdd}>
