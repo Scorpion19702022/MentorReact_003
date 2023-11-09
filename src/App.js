@@ -9,10 +9,9 @@ const App = () => {
 	const [isModal, setIsModal] = useState(false)
 	const [notes, setNotes] = useState([])
 
-	const [selectCategory, setSelectCategory] = useState('change')
-	const [styleAll, setStyleAll] = useState('')
-
-	// let addNewStyles
+	const [categoryHome, setCategoryHome] = useState([])
+	const [categoryJob, setCategoryJob] = useState([])
+	const [categoryEntertainment, setCategoryEntertainment] = useState([])
 
 	const handleCheckModal = type => {
 		if (type === 'open') {
@@ -33,38 +32,23 @@ const App = () => {
 	}
 
 	useEffect(() => {
-		if (selectCategory === 'home') {
-			setStyleAll('notelistview1')
-			console.log('żółty')
-		} else if (selectCategory === 'job') {
-			setStyleAll('notelistview2')
-			console.log('czerwony')
-		} else if (selectCategory === 'entertainment') {
-			setStyleAll('notelistview3')
-			console.log('zielony')
-		}
-	}, [selectCategory])
-
-	// console.log(styleAll)
-
-	// let addNewStyles
-
-	// if (selectCategory === 'home') {
-	// 	addNewStyles = 'notelistview1'
-	// } else if (selectCategory === 'job') {
-	// 	addNewStyles = 'notelistview2'
-	// } else if (selectCategory === 'entertainment') {
-	// 	addNewStyles = 'notelistview3'
-	// }
+		setCategoryHome(notes.filter(item => item.category === 'home'))
+		setCategoryJob(notes.filter(item => item.category === 'job'))
+		setCategoryEntertainment(notes.filter(item => item.category === 'entertainment'))
+	}, [notes])
 
 	return (
 		<div className='App'>
 			<SiteBar click={handleCheckModal} />
 			<div className='boxcontent'>
-				{isModal ? (
-					<Modal change={handleChange} click={handleCheckModal} select={selectCategory} newSelect={setSelectCategory} />
-				) : null}
-				<NoteList listNote={notes} deleteNote={deleteNote} styleAll={styleAll} />
+				{isModal ? <Modal change={handleChange} click={handleCheckModal} /> : null}
+				<NoteList
+					listNote={notes}
+					deleteNote={deleteNote}
+					home={categoryHome}
+					job={categoryJob}
+					entertainment={categoryEntertainment}
+				/>
 			</div>
 		</div>
 	)

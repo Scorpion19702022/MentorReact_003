@@ -133,7 +133,7 @@ textarea:focus {
 	color: var(--color-lightone);
 }
 
-.notelistview1 {
+.home {
 	padding: 1rem;
 	display: flex;
 	flex-direction: column;
@@ -142,7 +142,7 @@ textarea:focus {
 	height: 250px;
 	width: 250px;
 }
-.notelistview2 {
+.job {
 	padding: 1rem;
 	display: flex;
 	flex-direction: column;
@@ -151,7 +151,7 @@ textarea:focus {
 	height: 250px;
 	width: 250px;
 }
-.notelistview3 {
+.entertainment {
 	padding: 1rem;
 	display: flex;
 	flex-direction: column;
@@ -190,4 +190,40 @@ small {
 	display: grid;
 	grid-gap: 1rem;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+}
+
+.box-info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 2em 0;
+}
+
+.box-btn {
+	display: flex;
+	justify-content: center;
+}
+
+.allbtn {
+	margin: 0 1em;
+	width: 15vw;
+	padding: 0.2em 1em;
+	background: none;
+	border: none;
+	cursor: pointer;
+	margin-bottom: 1em;
+	font-size: 1.6em;
+}
+
+.active {
+	margin: 0 1em;
+	width: 15vw;
+	padding: 0.2em 1em;
+	margin-bottom: 1em;
+	background: none;
+	border: none;
+	font-size: 1.6em;
+	border-bottom: 0.04em solid var(--color-mediumthree);
+	color: var(--color-mediumthree);
+	cursor: pointer;
 }

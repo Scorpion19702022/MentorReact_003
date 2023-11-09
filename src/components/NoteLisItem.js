@@ -2,8 +2,10 @@ import React from 'react'
 import DeleteIcon from '../assets/352303_delete_icon.png'
 
 const NoteListItem = props => {
+	// console.log(props)
+
 	return (
-		<div className={props.bgcstyle}>
+		<div className={props.note.category}>
 			<p>{props.note.value}</p>
 			<div className='notebox'>
 				<small>{props.note.date}</small>
