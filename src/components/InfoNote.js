@@ -1,12 +1,25 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const InfoNote = props => {
-	const [activeClass, setActiveClass] = useState('All')
+	const [activeClass, setActiveClass] = useState('wszystkie')
+	const [activeCategoryNotes, setActiveCategoryNotes] = useState(props.note)
 
 	const handleChangeClassBtn = category => {
 		setActiveClass(category)
 		props.activeCategory(category)
 	}
+
+	useEffect(() => {
+		if (activeClass === 'wszystkie') {
+			setActiveCategoryNotes(props.note)
+		} else if (activeClass === 'dom') {
+			setActiveCategoryNotes(props.note.filter(item => item.category === 'home'))
+		} else if (activeClass === 'praca') {
+			setActiveCategoryNotes(props.note.filter(item => item.category === 'job'))
+		} else if (activeClass === 'rozrywka') {
+			setActiveCategoryNotes(props.note.filter(item => item.category === 'entertainment'))
+		}
+	}, [activeClass, props.note])
 
 	return (
 		<div className='box-info'>
@@ -31,7 +44,7 @@ const InfoNote = props => {
 				</button>
 			</div>
 			<div className='box-calclulate'>
-				<h2 className='heading-info-all'>Ilość notatek (0)</h2>
+				<h2 className='heading-info-all'>Ilość notatek ({activeCategoryNotes.length})</h2>
 			</div>
 		</div>
 	)

@@ -43,7 +43,7 @@ const NoteList = props => {
 
 	return (
 		<div>
-			<InfoNote activeCategory={handleActiveCategory} />
+			<InfoNote activeCategory={handleActiveCategory} note={props.listNote} />
 			<div className='notelist'>
 				{activeCategory === 'wszystkie' ? noteListAll : null}
 				{activeCategory === 'dom' ? noteListHome : null}

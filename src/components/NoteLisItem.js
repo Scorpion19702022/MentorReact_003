@@ -4,6 +4,8 @@ import DeleteIcon from '../assets/352303_delete_icon.png'
 const NoteListItem = props => {
 	// console.log(props)
 
+	console.log(props.note)
+
 	return (
 		<div className={props.note.category}>
 			<p>{props.note.value}</p>
